@@ -257,29 +257,36 @@
 
 		var result = buildTileCords(cornerX,cornerY,maxX,maxY,incrementX,incrementY);
 		var csvArray = [];
-		var csvHeader = ",index,zoom,x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6,x7,y7,x8,y8,x9,y9,x10,y10,x11,y11,x12,y12" + "\n";;
+		var csvHeader = "i,index,zoom,x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6,x7,y7,x8,y8,x9,y9,x10,y10,x11,y11,x12,y12" + "\n";;
 		csvArray[0] = csvHeader;
 
 		var row = "";
 		for(index in result){
 			var loopIndex = 1;
 			row += "" + index + "," + zoom + ",";
+			var firstElement = true;
 			for(idx in result[index]){
-				
-				for(i in result[index][idx]){
-					if(loopIndex==1){
+				for (i in result[index][idx]) { 
+					if(i < result[index][idx].length -1){
 						row += result[index][idx][i] + ",";
 					}
-					else if(loopIndex < result[index][idx].length - 1 && result[index][idx][i] != ""){
+					else if(loopIndex == 2){
+						row += result[index][idx][i];
+					}else{
 						row += result[index][idx][i] + ",";
 					}
-					loopIndex++;
+					
+					first_element = false;
 				}
+				loopIndex++;
 			}
+			loopIndex = 1;
 			row+= "\n";
+
 			csvArray.push(row);
 			row = "";
 		}
+		console.log(csvArray);
 		downloadFile(csvArray,"download.csv");
 		return result;
 	}
@@ -293,7 +300,7 @@
 
 	        if (window.navigator.msSaveBlob) {
 	            // FOR IE BROWSER
-	            navigator.msSaveBlob(blob, fileName);
+	            navigator.msSaveBlob(JSON.stringify(blob), fileName);
 	        } else {
 	            // FOR OTHER BROWSERS
 	            var link = document.createElement("a");
@@ -306,6 +313,7 @@
 	            document.body.removeChild(link);
 	        }
 	}
+
 	// Convert tile X and Y to Pixel X and Y
 	var tileXYtoPixelXY = function(tileX,tileY)
 	{
