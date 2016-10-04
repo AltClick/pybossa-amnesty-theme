@@ -92,7 +92,7 @@ body p{
   padding-right: 0px;
   padding-left: 0px;
 }
-a{
+.navbar-task-subheader a{
   color: black !important;
   text-decoration: none !important;
 }
@@ -396,6 +396,11 @@ p.progress-tracker-label {
   color: black;
 }
 
+/*Spin*/
+#images, .tiles-container{
+  display: none;
+}
+
 /** MOBILE MEDIA QUERY (320px to 768px) **/
 @media only screen and (min-width: 320px) {
 
@@ -502,6 +507,10 @@ p.progress-tracker-label {
   #keyModal .modal-body{
     padding-left: 0px;
     padding-right: 0px;
+  }
+  /*Spin loader*/
+  .spinner{
+    top: 30% !important;
   }
 }
 /** Feedback message on mobile devices 400px to 500px **/
@@ -666,6 +675,10 @@ p.progress-tracker-label {
     background-image: -moz-linear-gradient(bottom, #F7F7F7 57%, white 50%);
     background-image: -webkit-linear-gradient(bottom, #F7F7F7 57%, white 50%);
     background-image: -ms-linear-gradient(bottom, #F7F7F7 57%, white 50%);
+  }
+  /*Spin loader*/
+  .spinner{
+    top: 40% !important;
   }
 
 }
