@@ -14,7 +14,7 @@ body p{
 
 .desktop-container{
   background-color: #E5E5E5;
-  min-height: 340px;
+  min-height: 320px;
 }
 
 .desktop-container .tiles-container{
@@ -29,7 +29,7 @@ body p{
 
 .tablet-container{
   max-width: 992px;
-  min-height: 320px;
+  min-height: 460px;
 }
 
 /** NO PADDING **/
@@ -92,7 +92,7 @@ body p{
   padding-right: 0px;
   padding-left: 0px;
 }
-.navbar-task-subheader a{
+ a{
   color: black !important;
   text-decoration: none !important;
 }
@@ -395,7 +395,11 @@ p.progress-tracker-label {
   margin-bottom: 0px;
   color: black;
 }
-
+/*Footer links*/
+footer a{
+  color: white !important;
+  text-decoration: none !important;
+}
 /*Spin*/
 #images, .tiles-container{
   display: none;
@@ -510,7 +514,7 @@ p.progress-tracker-label {
   }
   /*Spin loader*/
   .spinner{
-    top: 30% !important;
+    top: 40% !important;
   }
 }
 /** Feedback message on mobile devices 400px to 500px **/
@@ -525,6 +529,9 @@ p.progress-tracker-label {
   .feedback{
     padding-top: 40px ;
   }
+  .mobile-container{
+    min-height: 420px;
+  }
 }
 
 /** Feedback message on mobile devices 500px to 768 **/
@@ -538,6 +545,9 @@ p.progress-tracker-label {
   }
   .feedback{
     padding-top: 50px ;
+  }
+  .mobile-container{
+    min-height: 500px;
   }
 }
 
