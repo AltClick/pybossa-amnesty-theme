@@ -621,6 +621,10 @@ div#subheader-container {
     padding-left: 0px;
     padding-right: 0px;
   }
+   .key-flag-div {
+    margin-right: 15px;
+    width: 10%;
+  }
 
   .tablet-container,
   .tabletcarousel{
