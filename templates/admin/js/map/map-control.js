@@ -40,6 +40,7 @@ $(document).ready(function() {
 
         // North East coordinates
         var neCoords = this.getBounds().getNorthEast().lat.toFixed(6) + ", " + this.getBounds().getNorthEast().lng.toFixed(6);
+
         $('.ne-bounds').text(neCoords);
 
         // South West coordinates
@@ -49,6 +50,7 @@ $(document).ready(function() {
         // Selection area in sq/km.
         // First build a GeoJson
         var selectedPolygonGeoJson = getPolygonGeoJson(this.getBounds());
+
         // Then use turf to calculate the area.
         // we use a global variable to set the selection area because we need to access it in the zoom
         // level selection dropdown.
@@ -131,7 +133,25 @@ $(document).ready(function() {
         if(numOfTasks > 35000){
             $( "#too-many-tasks-error-modal").modal('show');
         }else{
-            generateAndDownloadCSV();
+            var northEastLat = parseFloat($(this).attr('data-ne-lat'));
+            var northEastLon = parseFloat($(this).attr('data-ne-lon'));
+            var southWestLat = parseFloat($(this).attr('data-sw-lat'));
+            var southWestLon = parseFloat($(this).attr('data-sw-lon'));
+            $(this).attr("data-ne-lat" , '');
+            $(this).attr("data-ne-lon" , '');
+            $(this).attr("data-sw-lat" , '');
+            $(this).attr("data-sw-lon" , '');
+            if (isNaN(northEastLat) != true && isNaN(northEastLon) != true && isNaN(southWestLat) != true && isNaN(southWestLon) != true){
+                var topLeftPixelCoords = latLongZoomToPixelCoords(northEastLat,southWestLon);
+                var bottomRightPixelCoords = latLongZoomToPixelCoords(southWestLat, northEastLon);
+
+                //After we figured out the corner coordinates, let's generate the CSV
+                generateTilesCsv(topLeftPixelCoords.x, topLeftPixelCoords.y,bottomRightPixelCoords.x,bottomRightPixelCoords.y);
+
+            }else{
+                generateAndDownloadCSV();
+            }
+
         }
     });
 
@@ -175,8 +195,43 @@ $(document).ready(function() {
         return layerPoint;
     }
 
+    $( ".btn-select-ne-sw" ).click(function() {
+        var neLatCoord = $('#ne-lat-coordinate').val();
+        var neLonCoord = $('#ne-lon-coordinate').val();
+        var swLatCoord = $('#sw-lat-coordinate').val();
+        var swLonCoord = $('#sw-lon-coordinate').val();
+        var ne = neLatCoord + ' , ' + neLonCoord;
+        var sw = swLatCoord + ' , ' + swLonCoord;
+        $('.ne-bounds').text( ne );
+        $('.sw-bounds').text( sw );
+        $(".btn-download-csv").attr("data-ne-lat", neLatCoord);
+        $(".btn-download-csv").attr("data-ne-lon", neLonCoord);
+        $(".btn-download-csv").attr("data-sw-lat", swLatCoord);
+        $(".btn-download-csv").attr("data-sw-lon", swLonCoord);
+        var bounds =  L.rectangle([  [neLatCoord, neLonCoord], [swLatCoord, swLonCoord]]);
 
+        // areaSelect.remove();
+        // areaSelect.
+        //areaSelect = new L.areaSelect(bounds);
+        //areaSelect.addTo(map);
+        var selectedPolygonGeoJson = getPolygonGeoJson(bounds.getBounds());
 
+        // Then use turf to calculate the area.
+        // we use a global variable to set the selection area because we need to access it in the zoom
+        // level selection dropdown.
+        selectedAreaKM = turf.area(selectedPolygonGeoJson) / 1000000;
+
+        $('.selected-area').text(numeral(Math.ceil(selectedAreaKM)).format('0,0'));
+
+        numOfTasks = getRequiredNumberOfTasks();
+        $('.task-count').text(numeral(numOfTasks).format('0,0'));
+
+        // enable download CSV button if it is disables
+        if($('.btn-download-csv').hasClass('disabled')){
+            $('.btn-download-csv').removeClass('disabled');
+        }
+
+    });
     // Generate the CSV file based on the corner tile address coordinates, the increments
     // incrementX = width
     // incrementY = height

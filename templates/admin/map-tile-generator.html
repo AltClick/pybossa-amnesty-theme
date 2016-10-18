@@ -18,12 +18,43 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
 
 <div class="container-fluid">
+
     <div class="row">
+
         <div class="col-md-3">
             {{ helper.render_account_local_nav(current_user, active_link) }}
         </div>
         <div class="col-md-9">
-            <div id="map"></div>
+            <div class="row" >
+                <form class="form-inline">
+                    <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
+                        <div class="form-group">
+                          <label for="ne-lat-coordinate">{{ _('North-East coordinates:') }}</label>
+                          <input type="number" class="form-control" id="ne-lat-coordinate" placeholder="latitude">
+                        </div>
+                        <div class="form-group">
+                          <!--<label for="ne-lat-coordinate">Password:</label>-->
+                          <input type="number" class="form-control" id="ne-lon-coordinate" placeholder="longitude">
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom: 10px;">
+                        <div class="form-group">
+                          <label for="sw-lat-coordinate">{{ _('North-East coordinates:') }}</label>
+                          <input type="number" class="form-control" id="sw-lat-coordinate" placeholder="latitude">
+                        </div>
+                        <div class="form-group">
+                          <!--<label for="ne-lat-coordinate">Password:</label>-->
+                          <input type="number" class="form-control" id="sw-lon-coordinate" placeholder="longitude">
+                        </div>
+                        <div class="form-group left-margin">
+                            <a class="btn btn-primary btn-select-ne-sw" data-button="">Select</a>
+                        </div>
+                    </div>
+                  </form>
+            </div>
+            <div class="row">
+                <div id="map"></div>
+            </div>
         </div>
     </div>
 
@@ -72,7 +103,7 @@
                         <option value="0.5972">18</option>
                     </select>
                 </div>
-                <button type="button" class="btn btn-primary btn-download-csv disabled">Download CSV</button>
+                <button type="button" class="btn btn-primary btn-download-csv disabled" data-bounds="">Download CSV</button>
             </form>
         </div>
     </div>
