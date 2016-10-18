@@ -141,6 +141,7 @@ $(document).ready(function() {
             $(this).attr("data-ne-lon" , '');
             $(this).attr("data-sw-lat" , '');
             $(this).attr("data-sw-lon" , '');
+            $('.coordinate-point').val('');
             if (isNaN(northEastLat) != true && isNaN(northEastLon) != true && isNaN(southWestLat) != true && isNaN(southWestLon) != true){
                 var topLeftPixelCoords = latLongZoomToPixelCoords(northEastLat,southWestLon);
                 var bottomRightPixelCoords = latLongZoomToPixelCoords(southWestLat, northEastLon);
