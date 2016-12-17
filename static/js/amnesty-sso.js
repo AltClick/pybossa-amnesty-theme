@@ -117,8 +117,10 @@
 					})
 					.done(function(data){
 						//if user hasn't tried tutorial yet then show it
-						if (!window.pybossaTutorial.isSkippedOrComplete()) {
-							window.location = '/project/decode-darfur/tutorial';
+						var currentProject = window.settings.currentProject;
+						var currentSubProject = window.settings.currentSubProject;
+						if (!window.pybossaTutorial.isSkippedOrComplete(currentSubProject)) {
+							window.location = '/project/' + currentProject + '/tutorial';
 						} 
 						//other case, just reload current window
 						else {

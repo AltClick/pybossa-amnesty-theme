@@ -20,28 +20,72 @@
 	tutorial.setSkipped = setSkipped;
 	tutorial.setComplete = setComplete;
 
-	function setStage(stage) {
-		createCookie('decode-darfurtutorial-stage', stage, 120);
+	//tutorial stages for projects will looks like this: 
+	//project1!complete$project2!skipped
+	var projectSeparator = '$';
+	var keyValueSeparator = '!';
+
+	function setStage(project, stage) {
+		var projectsStageObj = getAllProjectsStage();
+
+		//update stage for specified project
+		projectsStageObj[project] = stage;
+
+		//flat object to string format
+		cookieValue = [];
+		for (var i in projectsStageObj) {
+			cookieValue[] = i + keyValueSeparator + projectsStageObj[i];
+		}
+		cookieValue = cookieValue.join(projectSeparator);
+
+		createCookie('decode-darfurtutorial-stage', cookieValue, 120);
 	}
 
-	function getStage() {
-		return readCookie('decode-darfurtutorial-stage');	
+	function getStage(project) {
+		var projectsStageObj = getAllProjectsStage();
+		if (projectsStageObj) {
+			if (project in projectsStageObj) {
+				return projectsStageObj[project];
+			}
+		}
+		return null;
 	}
 
-	function isSkippedOrComplete() {
-		var state = getStage() ;
+	function getAllProjectsStage() {
+		var cookieValue = readCookie('decode-darfurtutorial-stage');
+
+		//extract project-stage value to object format
+		cookieValue = cookieValue.split(projectSeparator);
+		var projectsStageObj = {};
+		cookieValue.forEach(function(value){
+			value = value.split(keyValueSeparator);
+			if (value && value.length == 2) {
+				projectsStageObj[value[0]] = value[1];	
+			} else {
+				console.warn('tutorial stage has incorrect value:' + 
+					value + '.' + 
+					' Value should have format: projectname!stagename'
+				);
+			}
+		});
+
+		return projectsStageObj;
+	}
+
+	function isSkippedOrComplete(project) {
+		var state = getStage(project) ;
 		if (state == 'skipped' || state == 'complete') {
 			return true;
 		}
 		return false;
 	}
 
-	function setSkipped() {
-		setStage('skipped');
+	function setSkipped(project) {
+		setStage(project, 'skipped');
 	}
 
-	function setComplete() {
-		setStage('complete');
+	function setComplete(project) {		
+		setStage(project, 'complete');
 	}
 
 	//cookie method
@@ -96,7 +140,9 @@
 	}
 
 	//use already click skip or complete tutorial
-	if (window.pybossaTutorial.isSkippedOrComplete()) {
+	var currentSubProject = window.settings.currentSubProject;
+	if (window.pybossaTutorial.isSkippedOrComplete(currentSubProject)) {
+
 		return;
 	}
 	window.location.href = "/project/" + currentProject + "/tutorial";
