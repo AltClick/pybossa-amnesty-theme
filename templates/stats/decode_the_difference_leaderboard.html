@@ -14,7 +14,7 @@
 	    // Get leaderboard data
 	    $.getJSON( "/api/project/" + 13 + "/leaderboard/limit/20", function( data ) {
 	        var badgeNumber = 1;
-	        var UserNumber = 0;
+	        var userNumber = 0;
 	        $.each(data, function (key, val) {
 	            var badgeClasName = 'user-' + badgeNumber;
                 if( val["score"] > -1){
@@ -46,7 +46,7 @@
                                 '</div> </div>'
                         );
 
-                        UserNumber++;
+                        userNumber++;
                         if (badgeNumber < 5){
                             badgeNumber++;
                         }
