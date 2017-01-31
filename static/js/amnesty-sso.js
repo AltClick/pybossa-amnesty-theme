@@ -140,7 +140,7 @@
 							if (postAuthCallBacks.length > 0) {
 								postAuthCallBacks.forEach(function(callback){
 									if (typeof callback === 'function') {
-										callback()
+										callback(data.user_id)
 									}
 								})
 							}
