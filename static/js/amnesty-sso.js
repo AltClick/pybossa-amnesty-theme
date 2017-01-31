@@ -148,10 +148,10 @@
 			}
 
 			var isIMModalOpen = false
-			$('#amnestySSOModal').on('hidden.bs.modal', function (e) {
+			$('#amnestySSOModal').on('hide.bs.modal', function (e) {
 			  isIMModalOpen = false
 			})
-			$('#amnestySSOModal').on('shown.bs.modal', function (e) {
+			$('#amnestySSOModal').on('show.bs.modal', function (e) {
 			  isIMModalOpen = true
 			})
 			window.amnestySSO.isIMModalOpen = function() {

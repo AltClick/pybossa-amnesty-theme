@@ -75,7 +75,10 @@
 
 	function open() {
 		var currentProject = window.settings.currentProject;
-		window.location.href = "/project/" + currentProject + "/tutorial";
+		var tutorialUri = "/project/" + currentProject + "/tutorial";
+		if (!window.isInTutorial && window.location.href.indexOf(tutorialUri) !== -1) {
+			window.location.href = tutorialUri;
+		}
 	}
 
 })();
