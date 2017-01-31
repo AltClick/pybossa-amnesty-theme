@@ -17,10 +17,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- Facebook meta tags-->
-    {% include 'decodedarfur/_fb.html' ignore missing %}
+    {% include 'darfurimagerycomparison/_fb.html' ignore missing %}
 
     <!-- Twitter meta tags-->
-    {% include 'decodedarfur/_tw.html' ignore missing %}
+    {% include 'darfurimagerycomparison/_tw.html' ignore missing %}
 
     <!-- Le styles -->
     <link href="{{url_for('static', filename='vendor/waitMe/waitMe.min.css')}}" rel="stylesheet" type="text/css">
@@ -147,9 +147,9 @@
                     </a>
                 </li>
                 <li>
-                     <a href="http://twitter.com/share?url={{ config.get('HOST')}}/&amp;text=Put spare minutes to good use - take a look at some satellite images and help us pinpoint destroyed villages in #Darfur."
-                           class="popup" style="padding: 0;">
-                        <i class="fa fa-twitter-square fa-4x tw-icon" aria-hidden="false"></i>
+                     <a href="http://twitter.com/share?url={{ config.get('SHARE_URL_DECODE_THE_DIFFERENCE')}}/&amp;text=Put spare minutes to good use - take a look at some satellite images and help us pinpoint destroyed villages in #Darfur."
+                           class="popup">
+                        <i class="fa fa-twitter-square fa-2x tw-icon" aria-hidden="false"></i>
                     </a>
                 </li>
             </ul>
