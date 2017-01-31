@@ -15,15 +15,7 @@
      $('.leaderboard-list').empty();
 
         // Get leaderboard data
-        $.getJSON( "/api/project/" + 13 + "/leaderboard/limit/20", function( data1 ) {
-            console.log(data1);
-            data= [ {"name" : "egzontinakrasniqi", "rank" : 5, score :  5},
-                {"name" : "egzontinakrasniqiss", "rank" : 1, score :  15},
-                {"name" : "egzontinakrasnissqi", "rank" : 2, score :  5},
-                {"name" : "egzontinakrasnfsfsiqiss", "rank" : 3, score :  15},
-                {"name" : "egzontinakrasnisdsfsqi", "rank" : 4, score :  5},
-                {"name" : "dffsf", "rank" : 3, score :  15},
-                {"name" : "egzontinakrasdfsfsdnissqi", "rank" : 4, score :  5}];
+        $.getJSON( "/api/project/" + 13 + "/leaderboard/limit/20", function( data ) {
             var badgeNumber = 1;
             var UserNumber = 0;
             $.each(data, function (key, val) {
