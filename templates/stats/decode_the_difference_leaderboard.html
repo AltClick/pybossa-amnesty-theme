@@ -1,0 +1,80 @@
+{% extends "/base.html" %}
+{% block content %}
+<script>
+	window.settings = {
+	    'currentProject': '{{ config.get('CURRENT_PROJECT') }}'
+	};
+	window.user = {
+	    'id': parseInt('{{ current_user.id }}'),
+	    'username': '{{ current_user.name }}'
+	};
+	var projectName = window.settings.currentProject;
+	var userId = window.user.id;
+	var userName = window.user.username;
+	    // Get leaderboard data
+	    $.getJSON( "/api/project/" + 13 + "/leaderboard/limit/20", function( data ) {
+	        var badgeNumber = 1;
+	        var UserNumber = 0;
+	        $.each(data, function (key, val) {
+	            var badgeClasName = 'user-' + badgeNumber;
+	            if (val['name'] == userName) {
+	                //Add current users
+	                    $('.leaderboard-list').append(
+	                            '<div class="row hr-line"> <div class="col-md-1 col-sm-2 col-xs-3 rank-desktop text-right">' +
+	                            '<span class="current-userbadge">' + val["rank"] + '</span>' +
+	                            '</div>' +
+	                            '<div class="col-md-9 col-sm-6 col-xs-5 name-desktop text-left">' +
+	                            '<p class="h4 current-user-score">' + val["name"] + ' (You) </p>' +
+	                            '</div>' +
+	                            '<div class="col-md-2 col-sm-4 col-xs-4 score-desktop text-right">' +
+	                            '<p class="h4 current-user-score">' + val["score"] + ' tasks</p>' +
+	                            '</div></div>'
+	                    );
+	                }
+	           else{
+	                // Append to desktop leaderboard
+	                $('.leaderboard-users-list').append(
+	                        '<div class="row hr-line"> <div class="col-md-1 col-sm-2 col-xs-3 rank-desktop text-right">' +
+	                        '<span class="user-badge ' + badgeClasName + '">' + val["rank"] + '</span>' +
+	                        '</div>' +
+	                        '<div class="col-md-9 col-sm-6 col-xs-5 name-desktop text-left">' +
+	                        '<p class="h4">' + val["name"] + '</p>' +
+	                        '</div>' +
+	                        '<div class="col-md-2 col-sm-4 col-xs-4 score-desktop text-right">' +
+	                        '<p class="h4">' + val["score"] + ' tasks</p>' +
+	                        '</div> </div>'
+	                );
+
+	                UserNumber++;
+	                if (badgeNumber < 5){
+	                    badgeNumber++;
+	                }
+	            }
+	        });
+	    });
+
+</script>
+<div class="row decode-the-difference-div">
+	<div class="col-sm-12 col-md-12 decode-the-difference-text">
+		<div class="row">
+			<div class="text-center">
+				<i class="glyphicon glyphicon-globe fa-2x"></i>
+			</div>
+			<h4 class="text-center"> Decode the Difference Leaderboard</h4>
+			<h6 class="text-center leaderboard-subtitle"> Here's how you stack up against your Decoders</h6>
+		</div>
+	</div>
+	<div class="row text-center">
+		<!-- leaderboard items added in getJSON response -->
+		<div class="col-lg-push-2 col-md-push-1 col-xs-12 col-sm-12 col-md-10 col-lg-8 ">
+			<div class="leaderboard-list">
+			</div>
+			<div class="leaderboard-users-list">
+			</div>
+			<div class="leaderboard-message-div">
+				<p> We would like to sincerely thank everyone who has taken the time to contribute to the Amnesty Decoders: Decode the Difference project. Every contribution makes a difference. Thank you.</p>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

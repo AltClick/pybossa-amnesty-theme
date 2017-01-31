@@ -142,7 +142,8 @@
 }
 .step-three-msg, .darfur-fun-facts-subtitle2,
 .trial-task-feedback-subtitle-correct-answer,
-.trial-task-feedback-subtitle-your-answer {
+.trial-task-feedback-subtitle-your-answer,
+.leaderboard-subtitle{
     color:#8e8c8c;
 }
 .trial-task-feedback-subtitle-correct-answer{

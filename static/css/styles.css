@@ -1015,3 +1015,149 @@ li > a {
 .profile-img-cursor {
     cursor: default !important;
 }
+.decode-the-difference-div .leaderboard-subtitle{
+    color:#8e8c8c;
+}
+.decode-the-difference-div, .decode-the-difference-text{
+    padding: 20px;
+}
+.leaderboard-list{
+    border-bottom: 0.5px solid #e5e5e5;
+    margin-bottom: 20px;
+}
+.leaderboard-users-list{
+    border-bottom: 0.5px solid #e5e5e5;
+}
+.leaderboard-message-div{
+    font-family: Helvetica, Arial;
+    color: #000;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.current-user-badge{
+    height: 35px;
+    width: 35px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 50%;
+    background: white;
+    color:black;
+    border: 5px solid black;
+}
+.hr-line {
+    border-top: 1px solid #e5e5e5;
+}
+
+.rank-mobile, .name-mobile, .score-mobile{
+    padding-top: 10px;
+    height: 60px;
+}
+.rank-desktop{
+    padding-top: 15px;
+    height: 60px;
+}
+.name-desktop, .score-desktop{
+    padding-top: 10px;
+    height: 60px;
+}
+.rank-desktop p, .name-desktop p, .score-desktop p,
+.rank-mobile p, .name-mobile p, .score-mobile p{
+    font-weight:bold;
+}
+@media screen and (min-width: 310px) and (max-width: 768px) {
+    .user-badge {
+        position: relative;
+        display: table-cell;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: black;
+        color: white;
+        font-size: 11px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .current-userbadge {
+        position: relative;
+        display: table-cell;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        font-size: 11px;
+        text-align: center;
+        vertical-align: middle;
+        box-shadow: 0 0 0px 2px black;
+    }
+
+    .leaderboard-users-list p, .badge-text, .current-user-score {
+        margin: auto;
+        font-size: 12px;
+    }
+
+    .user-1 {
+        box-shadow: 0 0 0px 3px #ffff00;
+    }
+
+    .user-2 {
+        box-shadow: 0 0 0px 3px #fef234;
+    }
+
+    .user-3 {
+        box-shadow: 0 0 0px 3px #fed22e;
+    }
+
+    .user-4 {
+        box-shadow: 0 0 0px 3px #fed230;
+    }
+
+    .user-5 {
+        box-shadow: 0 0 0px 3px #fdb02a;
+    }
+}
+@media screen and (min-width: 769px) {
+    .user-badge {
+        position: relative;
+        display: table-cell;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: black;
+        color: white;
+        font-size: 14px;
+        text-align: center;
+        vertical-align: middle;
+    }
+    .user-1{
+        box-shadow: 0 0 0px 6px #ffff00;
+    }
+    .user-2{
+        box-shadow: 0 0 0px 6px #fef234;
+    }
+    .user-3{
+        box-shadow: 0 0 0px 6px #fed22e;
+    }
+    .user-4{
+        box-shadow: 0 0 0px 6px #fed230;
+    }
+    .user-5{
+        box-shadow: 0 0 0px 6px #fdb02a;
+    }
+    .current-userbadge{
+        height: 30px;
+        width: 30px;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 50%;
+        font-size: 17px;
+        box-shadow: 0 0 0px 5px black;
+    }
+}
+.col-sm-4 {
+    height: auto !important;
+}
+
