@@ -963,7 +963,7 @@ span.shortcut-number {
     bottom: 7px;
     position: absolute;
     color: #CDC7C6;
-    z-index: 9999;
+    z-index: 1049;/* bootstrap modal has z-index: 1050, modal should be at the top */
     font-size: 12px;
 }
 span.shortcut-nr-2 {
