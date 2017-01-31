@@ -134,8 +134,17 @@
 						if (!window.pybossaTutorial.isSkippedOrComplete()) {
 							window.location = '/project/decode-darfur/tutorial';
 						} 
-						//other case, just reload current window
+						//other case
 						else {
+							//call callback
+							if (postAuthCallBacks.length > 0) {
+								postAuthCallBacks.forEach(function(callback){
+									if (typeof callback === 'function') {
+										callback()
+									}
+								})
+							}
+							// reload current window
 							location.reload(); 	
 						}						
 					})
@@ -156,6 +165,11 @@
 			})
 			window.amnestySSO.isIMModalOpen = function() {
 				return isIMModalOpen
+			}
+
+			var postAuthCallBacks = [];
+			window.amnestySSO.addPostAuthCallback = function(callback) {
+				postAuthCallBacks.push(callback);
 			}
 		}
 	});
