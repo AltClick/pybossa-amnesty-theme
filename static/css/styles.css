@@ -1160,4 +1160,7 @@ li > a {
 .col-sm-4 {
     height: auto !important;
 }
+.admin-menu a {
+    font-size: 13px !important;
+}
 

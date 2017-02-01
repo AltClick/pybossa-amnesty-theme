@@ -1,5 +1,27 @@
 {% extends "/base.html" %}
 {% block content %}
+<style>
+    /*Override header menu style*/
+@media (min-width: 993px){
+    .navbar-brand > img{
+        max-width: 110px !important;
+        height: auto !important;
+        min-width: 100px !important;
+    }
+    .navbar-brand {
+        height: 50px !important;
+    }
+    .amnesty-decoder-text h2 {
+        margin: 0 0 0 50px !important;
+    }
+    #menu li a {
+       padding: 15px 20px 15px 15px !important;
+    }
+    .navbar-brand {
+        width: 110px;
+    }
+}
+</style>
 <script>
 	window.settings = {
 	    'currentProject': '{{ config.get('CURRENT_PROJECT') }}'

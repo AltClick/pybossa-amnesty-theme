@@ -21,8 +21,8 @@
                     <li class="admin-menu"><a href="{{ url_for('account.index')}}">{{ _('Community') }}</a></li>
                     {% endif %}
                      <li class="admin-menu"><a href="{{ url_for('leaderboard.decode_the_difference_leaderboard')}}">{{ _('Leaderboard') }}</a></li>
-                    {# <li><a href="{{ config.get('AMNESTY_SSO_SERVER_URL') }}/projects/decode-darfur/how-it-works" >How it works</a></li> #}
-                    <li><a href="{{ config.get('DISCOURSE_SERVER_URL') }}/session/sso" >Discuss</a></li>
+                    {# <li class="admin-menu"><a href="{{ config.get('AMNESTY_SSO_SERVER_URL') }}/projects/decode-darfur/how-it-works" >How it works</a></li> #}
+                    <li class="admin-menu"><a href="{{ config.get('DISCOURSE_SERVER_URL') }}/session/sso" >Discuss</a></li>
 
                     {% if config['AMNESTY_SSO_ENABLE'] %}
                     <li class="admin-menu"><a href="{{ config.get('AMNESTY_SSO_SERVER_URL') }}/account/profile"><i class="fa fa-user" aria-hidden="true"></i> {{ current_user.name }}</a></li>
@@ -31,7 +31,7 @@
                     <li class="admin-menu"><a href="{{ url_for('account.signout') }}">Signout</a></li>
                     {% endif %}
                 {% else %}
-                    {# <li><a href="{{ config.get('AMNESTY_SSO_SERVER_URL') }}/projects/decode-darfur/how-it-works" >How it works</a></li> #}
+                    {# <li class="admin-menu"><a href="{{ config.get('AMNESTY_SSO_SERVER_URL') }}/projects/decode-darfur/how-it-works" >How it works</a></li> #}
 
                     {% if config['AMNESTY_SSO_ENABLE'] %}
                     <li><a href="#" id="btn-sso-register">{{ _('Register') }}</a></li>
