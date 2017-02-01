@@ -1,6 +1,12 @@
 {% extends "/base.html" %}
 {% block content %}
 <style>
+	.decode-the-difference-menu{
+		display: block !important;
+	}
+	.leaderboard-list-menu{
+		display: none !important;
+	}
     /*Override header menu style*/
 @media (min-width: 993px){
     .navbar-brand > img{
@@ -15,7 +21,7 @@
         margin: 0 0 0 50px !important;
     }
     #menu li a {
-       padding: 15px 20px 15px 15px !important;
+       padding: 15px 20px 15px 15px;
     }
     .navbar-brand {
         width: 110px;

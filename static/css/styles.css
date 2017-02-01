@@ -1163,4 +1163,16 @@ li > a {
 .admin-menu a {
     font-size: 13px !important;
 }
-
+/*Start decoding css*/
+.none{
+    display: none;
+}
+@media (min-width: 990px) {
+    .decode-the-difference-menu{
+        border-bottom: 5px solid black;
+        margin-bottom: -9px;
+    }
+    .decode-the-difference-a-link{
+        padding-bottom: 10px !important;
+    }
+}
