@@ -21,7 +21,7 @@
                 <li class="admin-menu"><a href="{{ url_for('project.new') }}">{{ _('Create') }}</a></li>
                 <li class="admin-menu"><a href="{{ url_for('account.index')}}">{{ _('Community') }}</a></li>
                 {% endif %}
-                <li class="admin-menu decode-the-difference-menu none"><a href="/project/{{ config.get('CURRENT_PROJECT') }}/newtask" class="decode-the-difference-a-link">Start Decoding</a></li>
+                <li class="admin-menu decode-the-difference-menu none"><a href="/project/{{ config.get('CURRENT_PROJECT') }}/newtask" class="decode-the-difference-a-link">Back to Decoding</a></li>
                 <li class="admin-menu leaderboard-list-menu"><a href="{{ url_for('leaderboard.decode_the_difference_leaderboard')}}">{{ _('Leaderboard') }}</a></li>
                 {# <li><a href="{{ config.get('AMNESTY_SSO_SERVER_URL') }}/projects/decode-darfur/how-it-works" >How it works</a></li> #}
                 <li class="admin-menu"><a href="{{ config.get('DISCOURSE_SERVER_URL') }}/session/sso" >Discuss</a></li>
