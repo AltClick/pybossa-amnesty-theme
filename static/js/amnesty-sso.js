@@ -91,9 +91,13 @@
 			};
 
 			$('#amnestySSOModal iframe').load(function(){
-			      $("#amnestySSOModal .loading").hide();
-			      //only show iframe content after it finishes loading
-			      $('#amnestySSOModal iframe').show();
+				var src = $('#amnestySSOModal iframe').attr('src')
+				//prevent showing a blank iframe as firefox load iframe content even it's source is empty
+				if (src) {
+					$("#amnestySSOModal .loading").hide();
+					//only show iframe content after it finishes loading
+					$('#amnestySSOModal iframe').show();
+				}
 			});
 
 			$('#amnestySSOModal #register-btn').click(function(){
