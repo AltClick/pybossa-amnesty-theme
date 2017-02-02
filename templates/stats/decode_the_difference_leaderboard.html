@@ -8,27 +8,44 @@
 		display: none !important;
 	}
     /*Override header menu style*/
-@media (min-width: 993px){
-    .navbar-brand > img{
-        max-width: 110px !important;
-        height: auto !important;
-        min-width: 100px !important;
-    }
-    .navbar-brand {
-        height: 50px !important;
-    }
-    .amnesty-decoder-text h2 {
-        margin: 0 0 0 50px !important;
-    }
-    #menu li a {
-       padding: 15px 20px 15px 15px;
-    }
-    .navbar-brand {
-        width: 110px;
-    }
+@media (min-width: 993px) {
+	.navbar-brand > img {
+		max-width: 110px !important;
+		height: auto !important;
+		min-width: 100px !important;
+	}
+
+	.navbar-brand {
+		height: 50px !important;
+	}
+
+	.amnesty-decoder-text h2 {
+		margin: 0 0 0 50px !important;
+	}
+
+	#menu li a {
+		padding: 15px 20px 15px 15px;
+	}
+
+	.navbar-brand {
+		width: 110px;
+	}
+	.navbar li a.underline:after {
+		content: " ";
+		position: absolute;
+		height: 6px;
+		bottom: 5px;
+		background: #1a1a1a
+	}
+
+	.navbar li a.underline.get-started-nav-item:after {
+		left: 16px;
+		width: 71%;
+	}
 }
 </style>
 <script>
+	$('.leaderboard-list-menu').attr('style', $('.decode-the-difference-a-link').attr('style'));
 	window.settings = {
 	    'currentProject': '{{ config.get('CURRENT_PROJECT') }}'
 	};
