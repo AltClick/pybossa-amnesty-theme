@@ -136,7 +136,7 @@
 					.done(function(data){
 						//if user hasn't tried tutorial yet then show it
 						if (!window.pybossaTutorial.isSkippedOrComplete()) {
-							window.location = '/project/decode-darfur/tutorial';
+							window.location = '/project/' + window.settings.currentProject + '/tutorial';
 						} 
 						//other case
 						else {
