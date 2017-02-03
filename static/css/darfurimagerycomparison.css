@@ -1032,6 +1032,9 @@ span.shortcut-nr-3 {
     .navbar-brand {
         width: 110px;
     }
+    .no-padd-li{
+        padding-top: 8px !important;
+    }
 }
 .capitalize-text
 {
