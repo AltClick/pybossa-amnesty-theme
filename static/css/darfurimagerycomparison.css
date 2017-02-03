@@ -1054,6 +1054,9 @@ span.shortcut-nr-3 {
   width: 30px;
   height: 30px;
 }
+.before-container-desktop, .after-container-desktop, .tablet-mobile-view {
+    position: relative !important;
+}
 /*.tile-img{*/
     /*display: none;*/
 /*}*/
