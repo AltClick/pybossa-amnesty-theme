@@ -11,11 +11,7 @@
 </style>
 <script type="text/javascript">
     $(window).load(function(){
-        $('#project-finished-modal').modal('show');
-
-        $( ".btn-join-discussion" ).click(function() {
-            window.location = 'https://discuss.decoders.amnesty.org';
-        });
+        $('.completed-message').modal('show');
     });
     // Prevent background body from being scrolled
     $('body').css('overflow','hidden');
@@ -69,11 +65,11 @@
         <div class="col-md-8 col-lg-8 dic-main-image-div col-8-custom">
             <!-- Tile images div begins here  -->
             <div class="row dic-tiles-div">
-                <div class="col-md-6 col-lg-6 img-before-div border-right">
+                <div class="col-md-6 col-lg-6 before-container-desktop border-right">
                     <img class="img-before" src="/static/img/decode-darfur/project-completed/img-tile-preload.jpg"  onerror="return imageOnError(this);">
                     <div class="before rotate-before"> Before </div>
                 </div>
-                <div class="col-md-6 col-lg-6 img-after-div border-left">
+                <div class="col-md-6 col-lg-6 after-container-desktop border-left">
                     <div class="row">
                         <div class="col-md-6 col-lg-6 padd-00">
                             <img class="img-after x1y1" src="/static/img/decode-darfur/project-completed/blurred-tile-t1.jpg" onerror="return imageOnError(this);">
@@ -94,7 +90,6 @@
                 </div>
             </div>
             <!-- Tile images div ends here  -->
-
         </div>
         <div class="col-md-2 col-lg-2 dic-right-side-div col-2-custom">
         </div>
@@ -163,52 +158,27 @@
     <div class="col-md-8 col-lg-8 col-8-custom padd-10 steps-desktop">
         <div class="row">
             <!-- First step begins here -->
-            <div class="row clearfix dic-option-container step-one step-one-buildings" style="padding-bottom: 10px;">
-                <div class="col-md-4 col-lg-4 no-padding-left">
-                    <div class="option-div link">
-                        <div class="radio radio-info radio-inline radio-inline-tutorial">
-                            <input type="radio" id="changed-desktop-radio" value="change" name="building-changes-desktop-radio">
-                            <label for="changed-desktop-radio" class=" "> CHANGE </label>
-                        </div>
-                        <span class="radio-checkbox-shortcut-number"> 1 </span>
-                    </div>
+            <div class="row clearfix dic-option-container step-one step-one-buildings">
+                <div class="col-sm-4 col-md-4 col-lg-4 no-padding-left option-div">
+                    <span class="shortcut-number shcolor"> 1 </span>
+                    <input type="button" name="desktop-input-button-step-1" value="CHANGE" class="btn link btn-block btn-black-white btn-height">
                 </div>
-                <div class="col-md-4 col-lg-4 half-padding">
-                    <div class="option-div link">
-                        <div class="radio radio-inline radio-inline-tutorial">
-                            <input type="radio" id="unchanged-desktop-radio" value="no change" name="building-changes-desktop-radio">
-                            <label for="unchanged-desktop-radio" class=" "> NO CHANGE </label>
-                        </div>
-                        <span class="radio-checkbox-shortcut-number"> 2 </span>
-                    </div>
+                <div class="col-sm-4 col-md-4 col-lg-4 half-padding option-div">
+                    <span class="shortcut-number shortcut-nr-2 shcolor"> 2 </span>
+                    <input type="button" name="desktop-input-button-step-1" value="NO CHANGE" class="btn link btn-block btn-black-white btn-height">
                 </div>
-                <div class="col-md-4 col-lg-4 no-padding-right">
-                    <div class="option-div link">
-                        <div class="radio radio-inline radio-inline-tutorial">
-                            <input type="radio" id="unsure-desktop-radio" value="not sure" name="building-changes-desktop-radio">
-                            <label for="unsure-desktop-radio" class=" "> NOT SURE </label>
-                        </div>
-                        <span class="radio-checkbox-shortcut-number"> 3 </span>
-                    </div>
+                <div class="col-sm-4 col-md-4 col-lg-4 no-padding-right option-div">
+                    <span class="shortcut-number shortcut-nr-3 shcolor "> 3 </span>
+                    <input type="button" name="desktop-input-button-step-1" value="NOT SURE" class="btn link btn-block btn-black-white btn-height">
                 </div>
             </div>
             <!-- First step ends here -->
-            <!-- Continue button begins here -->
-            <div class="row">
-                <button class="col-md-12 col-lg-12   dic-main-button btn-dic-continue black-background white-text" id="btn-dic-continue"> CONTINUE
-                <span class="glyphicon glyphicon-menu-right"></span>
-                <span class="button-shortcut-text"> SPACEBAR </span>
-                </button>
-                <button class="col-md-12 col-lg-12   dic-main-button black-background white-text step-three btn-next-task btn-dic-next-task" id="btn-dic-next-task"> NEXT TASK
-                <span class="glyphicon glyphicon-menu-right"></span>
-                <span class="button-shortcut-text"> SPACEBAR </span>
-                </button>
-            </div>
-            <!-- Continue button ends here -->
+
+
             <!-- Message in the end begins here -->
             <div class="row text-center message-end">
                 <p class="no-buidings-msg step-one">
-                    <a class="link "> I can't see any buildings in the images</a>
+                    <a class="link lnk-no-buildings lnk-border-bottom "> I can't see any buildings in the images</a>
                 </p>
                 <p class="flag-msg-div step-three ">
                     <a class="flag-msg link lnk-flag-modal"> <span class="glyphicon glyphicon-flag"></span> Flag and discuss the previous images on the community forum</a>
@@ -223,21 +193,35 @@
     <div class="col-md-2 col-lg-2 col-2-custom">
     </div>
 </div>
-<!-- Orientation Modal -->
-<div id="project-finished-modal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog">
-        <!-- Modal content-->
+<!-- Modal - Project Completed Message -->
+<div class="modal fade completed-message" data-backdrop="static" data-keyboard="false" id="completed-message" role="dialog">
+    <div class="modal-dialog modal-sm modal-inverse">
         <div class="modal-content">
-            <div class="modal-header" align="center">
-                <h4>Congratulations!</h4>
-            </div>
-            <div class="modal-body" align="center">
-                <p>You've contributed to all the tasks for this project.<br>We still needs more volunteers, so please spread the word!</p>
-            </div>
-            <div class="modal-footer" align="center" style="text-align: center">
-                <button class="btn-secondary--alt--md--fullwidth btn-tutorial btn-join-discussion" style="width: 200px;" id="btn-join-discussion">
-                    JOIN DISCUSSION
-                </button>
+            <div class="modal-body" style="text-align: center;">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <img src="/static/img/decode-darfur/trophy.png" style="width: 50px; height: 50px;"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p class="h3">{{ title }}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p> {{ message }}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12" align="center" style="padding-top: 20px;">
+                        <a href="{{ config.get('DISCOURSE_SERVER_URL') }}/session/sso" style="background-color: transparent !important;
+    color: white !important;">  <button class="btn-secondary--alt--md--fullwidth" >JOIN DISCUSSION </button> </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -713,7 +713,7 @@ footer ul.social-icons-ul li a:hover {
     text-align: center;
     margin: 0 auto;
 }
-#key-modal {
+#key-modal, .darfur-fun-facts-text {
     font-family:Helvetica, Arial;
     color: #000;
 }
@@ -795,15 +795,18 @@ footer ul.social-icons-ul li a:hover {
 }
 /* Mozilla CSS styles go here */
 @-moz-document url-prefix() {
-.before{
-    left: 0px !important;
-}
-.after{
-    right: -28px !important;
-}
-.confirmation-modal-tiles .after{
-    right: -24px !important;
-}
+    .before{
+        left: 0px !important;
+    }
+    .after{
+        right: -28px !important;
+    }
+    .confirmation-modal-tiles .after{
+        right: -24px !important;
+    }
+    #key-modal .after {
+        right: -24px !important;
+    }
 }
 /* Safari CSS styles go here */
 @media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0)
@@ -852,7 +855,18 @@ footer ul.social-icons-ul li a:hover {
         top: 36px !important;
     }
 
-}}
+    #key-modal .after {
+        height: 30px;
+        top: 25px;
+        right: -55px;
+    }
+    #key-modal .before {
+        height: 30px;
+        top: 50px;
+        left: 1px;
+    }
+    }
+}
 
 /* IE10+ CSS styles go here */
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
@@ -1015,7 +1029,10 @@ span.shortcut-nr-3 {
 #tutorial-slideshow-modal, #trial-task-feedback-modal, #key-modal, #trial-task-finished-modal {
     z-index: 999999 !important;
 }
-
+#trial-task-finished-modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
 /*Override header menu style*/
 @media (min-width: 993px){
     .navbar-brand > img{
@@ -1057,6 +1074,25 @@ span.shortcut-nr-3 {
 .before-container-desktop, .after-container-desktop, .tablet-mobile-view {
     position: relative !important;
 }
-/*.tile-img{*/
-    /*display: none;*/
-/*}*/
+.darfur-fun-facts-img-confirmation-screen{
+    width: 200px;
+}
+@media (min-width: 768px) and (max-width: 993px){
+.trial-score{
+    height: 80px;
+    width: 80px;
+}
+#btn-redo-trial, #btn-trial-start-decoding {
+    width: 48%;
+    font-size: 13px;
+}
+#btn-redo-trial{
+    float: left;
+}
+#btn-trial-start-decoding {
+    float: right;
+}
+span.button-shortcut-text{
+    font-size: 10px;
+}
+}
