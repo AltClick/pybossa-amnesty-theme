@@ -713,7 +713,7 @@ footer ul.social-icons-ul li a:hover {
     text-align: center;
     margin: 0 auto;
 }
-#key-modal {
+#key-modal, .darfur-fun-facts-text {
     font-family:Helvetica, Arial;
     color: #000;
 }
@@ -1057,6 +1057,30 @@ span.shortcut-nr-3 {
 .before-container-desktop, .after-container-desktop, .tablet-mobile-view {
     position: relative !important;
 }
-/*.tile-img{*/
-    /*display: none;*/
-/*}*/
+.darfur-fun-facts-img-confirmation-screen{
+    width: 200px;
+}
+@media (min-width: 768px) and (max-width: 993px){
+#trial-task-feedback-modal .modal-content , #trial-task-finished-modal .modal-content{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.trial-score{
+    height: 70px;
+    width: 70px;
+}
+#btn-redo-trial, #btn-trial-start-decoding {
+    width: 48%;
+    font-size: 11px;
+}
+#btn-redo-trial{
+    float: left;
+}
+#btn-trial-start-decoding {
+    float: right;
+}
+span.button-shortcut-text{
+    font-size: 10px;
+}
+}
