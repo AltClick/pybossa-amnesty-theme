@@ -1015,7 +1015,10 @@ span.shortcut-nr-3 {
 #tutorial-slideshow-modal, #trial-task-feedback-modal, #key-modal, #trial-task-finished-modal {
     z-index: 999999 !important;
 }
-
+#trial-task-finished-modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
 /*Override header menu style*/
 @media (min-width: 993px){
     .navbar-brand > img{
@@ -1061,18 +1064,13 @@ span.shortcut-nr-3 {
     width: 200px;
 }
 @media (min-width: 768px) and (max-width: 993px){
-#trial-task-feedback-modal .modal-content , #trial-task-finished-modal .modal-content{
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-}
 .trial-score{
-    height: 70px;
-    width: 70px;
+    height: 80px;
+    width: 80px;
 }
 #btn-redo-trial, #btn-trial-start-decoding {
     width: 48%;
-    font-size: 11px;
+    font-size: 13px;
 }
 #btn-redo-trial{
     float: left;
