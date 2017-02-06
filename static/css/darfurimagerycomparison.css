@@ -795,15 +795,18 @@ footer ul.social-icons-ul li a:hover {
 }
 /* Mozilla CSS styles go here */
 @-moz-document url-prefix() {
-.before{
-    left: 0px !important;
-}
-.after{
-    right: -28px !important;
-}
-.confirmation-modal-tiles .after{
-    right: -24px !important;
-}
+    .before{
+        left: 0px !important;
+    }
+    .after{
+        right: -28px !important;
+    }
+    .confirmation-modal-tiles .after{
+        right: -24px !important;
+    }
+    #key-modal .after {
+        right: -24px !important;
+    }
 }
 /* Safari CSS styles go here */
 @media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0)
@@ -852,7 +855,18 @@ footer ul.social-icons-ul li a:hover {
         top: 36px !important;
     }
 
-}}
+    #key-modal .after {
+        height: 30px;
+        top: 25px;
+        right: -55px;
+    }
+    #key-modal .before {
+        height: 30px;
+        top: 50px;
+        left: 1px;
+    }
+    }
+}
 
 /* IE10+ CSS styles go here */
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
