@@ -1077,22 +1077,3 @@ span.shortcut-nr-3 {
 .darfur-fun-facts-img-confirmation-screen{
     width: 200px;
 }
-@media (min-width: 768px) and (max-width: 993px){
-.trial-score{
-    height: 80px;
-    width: 80px;
-}
-#btn-redo-trial, #btn-trial-start-decoding {
-    width: 48%;
-    font-size: 13px;
-}
-#btn-redo-trial{
-    float: left;
-}
-#btn-trial-start-decoding {
-    float: right;
-}
-span.button-shortcut-text{
-    font-size: 10px;
-}
-}
