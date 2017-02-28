@@ -121,8 +121,7 @@
 				}
 			});
 
-			//wait IM login form to return token
-			window.addEventListener("message", receiveMessage, false);
+			//wait IM login form to return token			
 			function receiveMessage(event)
 			{
 				var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
@@ -159,6 +158,7 @@
         			.always(function(){
         			});
 			}
+			window.addEventListener("message", receiveMessage, false);
 
 			var isIMModalOpen = false
 			$('#amnestySSOModal').on('hide.bs.modal', function (e) {
